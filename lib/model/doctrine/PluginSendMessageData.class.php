@@ -205,4 +205,12 @@ abstract class PluginSendMessageData extends BaseSendMessageData
 
     return $subject;
   }
+
+  public function preDelete($event)
+  {
+    foreach ($this->MessageFile as $messageFile)
+    {
+      $messageFile->delete();
+    }
+  }
 }
