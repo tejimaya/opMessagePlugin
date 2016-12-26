@@ -288,6 +288,8 @@ $(document).ready(function() {
       }
 
       this.updateTimeInfo();
+
+      return true;
     },
 
     /**
@@ -536,7 +538,7 @@ $(document).ready(function() {
       message.getMessages(minId, true).done(function(response) {
 
         $('#first-loading').hide();
-        message.insertMessages(response.data, true);
+        var result = message.insertMessages(response.data, true);
         dfd.resolve();
 
         if (!$('#message-wrapper-parent').find('.message-wrapper').length) {
@@ -547,6 +549,10 @@ $(document).ready(function() {
         }
 
         $('#no-message').hide();
+
+        if (result) {
+          $(window).scrollTop($('#message-wrapper-parent').find('.message-wrapper:last').offset().top);
+        }
 
         if (minId == -1 && response.has_more) {
           message.showMore();
