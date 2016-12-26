@@ -1,5 +1,5 @@
 <?php use_helper('opAsset') ?>
-<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css', 'last') ?>
+<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/smt-message.js', 'last') ?>
 <input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />

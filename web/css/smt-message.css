@@ -42,6 +42,10 @@ body#page_message_smtList div.message-wrapper div.span7 .lastMessage a {
  * page_message_smtChain
  *----------------------------------------------------------------------------*/
 
+body#page_message_smtChain div#message-wrapper-parent {
+  margin-bottom: 150px;
+}
+
 body#page_message_smtChain div#message-wrapper-parent div.message-wrapper {
   position: relative;
   width: 80%;
@@ -86,4 +90,17 @@ body#page_message_smtChain div#message-wrapper-parent p.time-info {
   margin-top: 10px;
   text-align: center;
   color: #468847;
+}
+
+#page_message_smtChain #submit-wrapper {
+  position: fixed !important;
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: 110px;
+  padding: 5px;
+  z-index: 9999;
+  background: white;
 }
