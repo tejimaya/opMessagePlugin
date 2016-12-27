@@ -106,6 +106,11 @@ class opMessageSender
 
   public static function decorateBySpecifiedTemplate($templateName, $templateParams = array())
   {
+    $context = sfContext::getInstance();
+    $context->getConfiguration()->loadHelpers('i18n');
+    $request = $context->getRequest();
+    $defaultFormat = $request->getRequestFormat();
+    $request->setRequestFormat('html');
     $templateName = '_'.$templateName;
     $view = new opGlobalPartialView(sfContext::getInstance(), 'superGlobal', $templateName, '');
     $view->setPartialVars($templateParams);
@@ -113,7 +118,10 @@ class opMessageSender
     // decorated message is not HTML
     $view->getAttributeHolder()->setEscaping(false);
 
-    return $view->render();
+    $ret = $view->render();
+    $request->setRequestFormat($defaultFormat);
+
+    return $ret;
   }
 
  /**
