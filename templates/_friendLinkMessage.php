@@ -9,4 +9,4 @@
 
 <?php echo __('Please allow or reject this request in the confirmation list page.') ?>
 
-<?php echo url_for('@confirmation_list?category=friend_confirm', true) ?>
+<?php echo app_url_for('pc_frontend', '@confirmation_list?category=friend_confirm', true) ?>
