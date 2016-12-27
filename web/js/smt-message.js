@@ -90,11 +90,16 @@ $(document).ready(function() {
     /**
      * hide and show submit fields.
      */
-    submitFilter: function() {
-      $('#loading').toggle();
-      $('#submit-message').toggle();
-      $('#do-submit').toggle();
-      $('#message_image').toggle();
+    submitDeactivate: function() {
+      $('#message_image').attr('disabled', 'disabled');
+      $('#submit-message').attr('disabled', 'disabled');
+      $('#do-submit').attr('disabled', 'disabled');
+    },
+
+    submitActivate: function() {
+      $('#message_image').removeAttr('disabled');
+      $('#submit-message').removeAttr('disabled');
+      $('#do-submit').removeAttr('disabled');
     },
 
     /**
@@ -135,7 +140,7 @@ $(document).ready(function() {
         form = $('form#send-message-form'),
         formData = this.getFormData(form);
 
-      this.submitFilter();
+      this.submitDeactivate();
       this.stopHeartbeatTimer();
 
       $.ajax({
@@ -152,7 +157,7 @@ $(document).ready(function() {
           $('#no-message').hide();
           $('#submit-message').val('');
           $('#message_image').val('');
-          message.submitFilter();
+          message.submitActivate();
           message.startHeartbeatTimer();
         });
       });
