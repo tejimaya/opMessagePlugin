@@ -34,7 +34,7 @@ function op_message_link_to_member(sfOutputEscaper $member = null)
 function op_api_message($messageList, $member, $useIsReadFlag = false)
 {
   $message = $messageList->getSendMessageData();
-  $body = preg_replace(array('/&lt;op:.*?&gt;/', '/&lt;\/op:.*?&gt;/'), '', $message->getBody());
+  $body = preg_replace(array('/&lt;op:.*?&gt;/', '/&lt;\/op:.*?&gt;/'), '', $message->getDecoratedMessageBody());
   $body = preg_replace('/http.:\/\/maps\.google\.co[[:graph:]]*/', '', $body);
   $body = op_auto_link_text($body);
   $imagePath = null;
