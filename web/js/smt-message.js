@@ -632,4 +632,14 @@ $(document).ready(function() {
   };
 
   message.initialize();
+
+  var $messageMember = $('#page_message_smtChain #message-member');
+  $(window).on('load scroll', function() {
+    if($(this).scrollTop() > $messageMember.offset().top) {
+      $messageMember.find('.content').addClass('fix');
+    } else {
+      $messageMember.find('.content').removeClass('fix');
+    }
+  });
+  $messageMember.height($messageMember.find('.content').outerHeight(true));
 });
