@@ -6,8 +6,25 @@
 <?php op_smt_use_javascript('/opMessagePlugin/js/bootstrap.min.js', sfWebResponse::LAST) ?>
 <input type="hidden" value="<?php echo $member->getId() ?>" name="toMember" id="messageToMember" />
 <input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />
-<div class="row">
-  <div class="gadget_header span12"><?php echo __('Read messages') ?></div>
+
+<div class="row" id="message-member">
+  <div class="content">
+    <div class="row">
+      <div class="gadget_header span12"><?php echo $member->getname() ?></div>
+    </div>
+    <div class="row" id="member-image">
+      <div class="span3 center">
+        <?php echo op_link_to_member($member, array('link_target' => op_image_tag_sf_image($member->getImageFileName(), array('size' => '48x48')))) ?>
+        <div class="row face-name"><?php echo op_link_to_member($member) ?></div>
+      </div>
+      <div class="span6">&nbsp;</div>
+      <div class="span3 center">
+        <?php $myMember = $sf_user->getMember() ?>
+        <?php echo op_link_to_member($myMember, array('link_target' => op_image_tag_sf_image($myMember->getImageFileName(), array('size' => '48x48')))) ?>
+        <div class="row face-name"><?php echo $myMember->getName() ?></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row">
