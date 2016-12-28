@@ -104,3 +104,20 @@ body#page_message_smtChain div#message-wrapper-parent p.time-info {
   z-index: 9999;
   background: white;
 }
+
+#page_message_smtChain #member-image {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: white;
+}
+#page_message_smtChain #message-member .content {
+  left: auto;
+  right: auto;
+  z-index: 9999;
+}
+
+#page_message_smtChain #message-member .content.fix {
+  position: fixed;
+  top: 0;
+  max-width: 100vw;
+}
