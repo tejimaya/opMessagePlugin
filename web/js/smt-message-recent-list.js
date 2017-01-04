@@ -33,13 +33,6 @@ $(document).ready(function() {
      * initialize.
      */
     initialize: function() {
-
-      // set baseUrl
-      if (typeof $('#baseUrl').val() == 'string') {
-        openpne.baseUrl = $('#baseUrl').val();
-      }
-      openpne.baseUrl += '/';
-
       // common.
       $('.message-created-at').timeago();
 
@@ -136,7 +129,7 @@ $(document).ready(function() {
             .append('<a href="' + data.member.profile_url + '">' + data.member.name + '</a>')
           .end()
             .find('.lastMessage')
-            .append('<a href="' + openpne.baseUrl + 'message/smtChain?id=' + data.member.id + '">' + data.summary + '</a>')
+            .append('<a href="' + data.chainUrl + '">' + data.summary + '</a>')
           .end()
             .find('.message-created-at')
             .attr('title', data.created_at)
@@ -232,9 +225,10 @@ $(document).ready(function() {
     getRecentList: function(keyId, page, memberIds) {
 
       var dfd = $.Deferred();
+      var url = $('#recentListUrl').val();
 
       $.ajax({
-        url: openpne.apiBase + "message/recentList.json",
+        url: url,
         type: 'POST',
         data: {
           apiKey: openpne.apiKey,
