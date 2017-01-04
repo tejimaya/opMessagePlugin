@@ -57,6 +57,7 @@ function op_api_message($messageList, $member, $useIsReadFlag = false)
     'image_tag'   => $imageTag,
     'created_at'  => $message->getCreatedAt(),
     'formatted_date' => get_formatted_date($message->getCreatedAt()),
+    'chainUrl'    => app_url_for('pc_frontend', '@messageChain?id='.$member->getId()),
   );
 
   if ($useIsReadFlag)
