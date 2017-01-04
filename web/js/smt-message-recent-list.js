@@ -33,13 +33,6 @@ $(document).ready(function() {
      * initialize.
      */
     initialize: function() {
-
-      // set baseUrl
-      if (typeof $('#baseUrl').val() == 'string') {
-        openpne.baseUrl = $('#baseUrl').val();
-      }
-      openpne.baseUrl += '/';
-
       // common.
       $('.message-created-at').timeago();
 
@@ -232,9 +225,10 @@ $(document).ready(function() {
     getRecentList: function(keyId, page, memberIds) {
 
       var dfd = $.Deferred();
+      var url = $('#recentListUrl').val();
 
       $.ajax({
-        url: openpne.apiBase + "message/recentList.json",
+        url: url,
         type: 'POST',
         data: {
           apiKey: openpne.apiKey,

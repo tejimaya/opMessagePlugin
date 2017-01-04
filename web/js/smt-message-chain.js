@@ -34,12 +34,6 @@ $(document).ready(function() {
      */
     initialize: function() {
 
-      // set baseUrl
-      if (typeof $('#baseUrl').val() == 'string') {
-        openpne.baseUrl = $('#baseUrl').val();
-      }
-      openpne.baseUrl += '/';
-
       // common.
       $('.message-created-at').timeago();
 
@@ -128,9 +122,10 @@ $(document).ready(function() {
 
       this.submitDeactivate();
       this.stopHeartbeatTimer();
+      var url = $('#postUrl').val();
 
       $.ajax({
-        url: openpne.apiBase + "message/post.json",
+        url: url,
         type: 'POST',
         processData: false,
         contentType: false,
@@ -348,9 +343,10 @@ $(document).ready(function() {
     getMessages: function(keyId, isAddLow) {
 
       var dfd = $.Deferred();
+      var url = $('#chainUrl').val();
 
       $.ajax({
-        url: openpne.apiBase + "message/chain.json",
+        url: url,
         type: 'POST',
         data: {
           apiKey: openpne.apiKey,

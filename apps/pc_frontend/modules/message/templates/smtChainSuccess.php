@@ -5,7 +5,8 @@
 <?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-chain.js?2.0.0alpha3', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/bootstrap.min.js', sfWebResponse::LAST) ?>
 <input type="hidden" value="<?php echo $member->getId() ?>" name="toMember" id="messageToMember" />
-<input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />
+<input type="hidden" value="<?php echo app_url_for('api', 'message_post') ?>" name="postUrl" id="postUrl" />
+<input type="hidden" value="<?php echo app_url_for('api', 'message_chain') ?>" name="chainUrl" id="chainUrl" />
 
 <div class="row" id="message-member">
   <div class="content">

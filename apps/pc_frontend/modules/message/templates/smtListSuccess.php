@@ -2,12 +2,12 @@
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-recent-list.js?2.0.0alpha3', 'last') ?>
-<input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />
 <input type="hidden" value="0" name="messageKeyId" id="messageKeyId" />
 <input type="hidden" value="" name="prevPage" id="prevPage" />
 <input type="hidden" value="" name="nextPage" id="nextPage" />
 <input type="hidden" value="" name="page" id="page" />
 <input type="hidden" value="" name="memberIds" id="memberIds" />
+<input type="hidden" value="<?php echo app_url_for('api', 'recent_message_list') ?>" name="recentListUrl" id="recentListUrl" />
 <div class="row">
   <div class="gadget_header span12"><?php echo __('Read messages') ?></div>
 </div>
