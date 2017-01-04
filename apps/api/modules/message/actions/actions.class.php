@@ -66,7 +66,7 @@ class messageActions extends opJsonApiActions
     $messageFile->save();
   }
 
-  public function executeSearch(sfWebRequest $request)
+  public function executeChain(sfWebRequest $request)
   {
     $this->forward400If('' === (string)$request['memberId'], 'memberId parameter is not specified.');
     $this->forward400If('' === (string)$request['maxId'], 'maxId parameter is not specified.');

@@ -2,7 +2,7 @@
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', sfWebResponse::LAST) ?>
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/bootstrap-popover.css', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', sfWebResponse::LAST) ?>
-<?php op_smt_use_javascript('/opMessagePlugin/js/smt-message.js?2.0.0alpha2', sfWebResponse::LAST) ?>
+<?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-chain.js?2.0.0alpha3', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/bootstrap.min.js', sfWebResponse::LAST) ?>
 <input type="hidden" value="<?php echo $member->getId() ?>" name="toMember" id="messageToMember" />
 <input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />

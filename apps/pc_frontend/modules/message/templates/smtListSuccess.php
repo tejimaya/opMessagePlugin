@@ -1,7 +1,7 @@
 <?php use_helper('opAsset') ?>
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', 'last') ?>
-<?php op_smt_use_javascript('/opMessagePlugin/js/smt-message.js?2.0.0alpha2', 'last') ?>
+<?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-recent-list.js?2.0.0alpha3', 'last') ?>
 <input type="hidden" value="<?php echo sfConfig::get('op_base_url') ?>" name="baseUrl" id="baseUrl" />
 <input type="hidden" value="0" name="messageKeyId" id="messageKeyId" />
 <input type="hidden" value="" name="prevPage" id="prevPage" />
