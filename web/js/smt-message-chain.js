@@ -248,6 +248,10 @@ $(document).ready(function() {
         template = this.$template.children().clone(),
         $photo = template.find('.photo'),
         position = data.member.id == this.getMemberId() ? 'right' : 'left';
+      var isReadMessage = '';
+      if (data.is_read !== null) {
+        isReadMessage = data.is_read ? '<span class="label label-success">既読</span>' : '<span class="label label-warning">未読</span>';
+      }
 
       template
         .attr('data-message-id', data.id)
@@ -258,6 +262,9 @@ $(document).ready(function() {
             .parent('.time-info-wrapper')
             .attr('data-created-at-date', data.formatted_date)
           .end()
+        .end()
+          .find('.message-status')
+          .html(isReadMessage)
         .end()
           .find('.popover-title')
           .append(data.member.name)
