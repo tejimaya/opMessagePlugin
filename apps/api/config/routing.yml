@@ -4,10 +4,10 @@ message_post:
   param: { module: message, action: post, sf_format: json }
   requirements: { sf_method: post }
 
-message_search:
-  url: /message/search.json
+message_chain:
+  url: /message/chain.json
   class: sfRequestRoute
-  param: { module: message, action: search, sf_format: json }
+  param: { module: message, action: chain, sf_format: json }
   requirements: { sf_method: post }
 
 recent_message_list:

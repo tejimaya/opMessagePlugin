@@ -477,7 +477,7 @@ $(document).ready(function() {
       var dfd = $.Deferred();
 
       $.ajax({
-        url: openpne.apiBase + "message/search.json",
+        url: openpne.apiBase + "message/chain.json",
         type: 'POST',
         data: {
           apiKey: openpne.apiKey,
