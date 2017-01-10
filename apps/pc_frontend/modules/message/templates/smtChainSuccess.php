@@ -1,5 +1,5 @@
 <?php use_helper('opAsset', 'Javascript', 'opMessage') ?>
-<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', sfWebResponse::LAST) ?>
+<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha3', sfWebResponse::LAST) ?>
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/bootstrap-popover.css', sfWebResponse::LAST) ?>
 <?php op_smt_use_stylesheet('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', sfWebResponse::LAST) ?>
