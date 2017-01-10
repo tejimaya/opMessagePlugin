@@ -1,6 +1,7 @@
 <?php use_helper('opAsset', 'Javascript', 'opMessage') ?>
-<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', sfWebResponse::LAST) ?>
+<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha3', sfWebResponse::LAST) ?>
 <?php op_smt_use_stylesheet('/opMessagePlugin/css/bootstrap-popover.css', sfWebResponse::LAST) ?>
+<?php op_smt_use_stylesheet('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-chain.js?2.0.0alpha3', sfWebResponse::LAST) ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/bootstrap.min.js', sfWebResponse::LAST) ?>
@@ -11,7 +12,11 @@
 <div class="row" id="message-member">
   <div class="content">
     <div class="row">
-      <div class="gadget_header span12"><?php echo $member->getname() ?></div>
+      <div class="message_chain_header span12">
+        <div class="span3 left"><?php echo link_to('<i class="btn icon-circle-arrow-left icon-5"></i>', 'message/smtList') ?></div>
+        <div class="span6 center"><?php echo $member->getName() ?></div>
+        <div class="span3">&nbsp;</div>
+      </div>
     </div>
     <div class="row" id="member-image">
       <div class="span3 center">

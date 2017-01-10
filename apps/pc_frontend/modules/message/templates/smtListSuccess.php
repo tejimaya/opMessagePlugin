@@ -1,5 +1,5 @@
 <?php use_helper('opAsset') ?>
-<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha2', 'last') ?>
+<?php op_smt_use_stylesheet('/opMessagePlugin/css/smt-message.css?2.0.0alpha3', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/jquery.timeago.js', 'last') ?>
 <?php op_smt_use_javascript('/opMessagePlugin/js/smt-message-recent-list.js?2.0.0alpha3', 'last') ?>
 <input type="hidden" value="0" name="messageKeyId" id="messageKeyId" />

@@ -121,3 +121,14 @@ body#page_message_smtChain div#message-wrapper-parent p.time-info {
   top: 0;
   max-width: 100vw;
 }
+
+#page_message_smtChain .message_chain_header {
+  background: #333;
+  color: #fff;
+}
+
+#page_message_smtChain .message_chain_header a {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+}
