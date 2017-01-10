@@ -4,7 +4,7 @@ $data = array();
 
 foreach ($pager->getResults() as $messageList)
 {
-  $data[] = op_api_message($messageList, $messageList->getSendFrom());
+  $data[] = op_api_message($messageList, $messageList->getSendFrom(), true);
 }
 
 return array(

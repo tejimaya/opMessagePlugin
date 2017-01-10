@@ -62,7 +62,7 @@ function op_api_message($messageList, $member, $useIsReadFlag = false)
 
   if ($useIsReadFlag)
   {
-    $data['is_read'] = $messageList->isSelf() ? (bool) $messageList->getIsRead() : null;
+    $data['is_read'] = $message->getIsSender() ? (bool) $messageList->getIsRead() : null;
   }
 
   return $data;

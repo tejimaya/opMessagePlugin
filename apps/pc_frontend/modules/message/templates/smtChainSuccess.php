@@ -71,6 +71,7 @@
     <div class="arrow"></div>
     <h3 class="popover-title"></h3>
     <div class="popover-content">
+      <p class="message-status"></p>
       <div class="body">
         <p class="message-body"></p>
         <ul class="photo"></ul>
