@@ -12,7 +12,11 @@
 <div class="row" id="message-member">
   <div class="content">
     <div class="row">
-      <div class="gadget_header span12"><?php echo $member->getname() ?></div>
+      <div class="message_chain_header span12">
+        <div class="span3 left"><?php echo link_to('<i class="btn icon-circle-arrow-left icon-5"></i>', 'message/smtList') ?></div>
+        <div class="span6 center"><?php echo $member->getName() ?></div>
+        <div class="span3">&nbsp;</div>
+      </div>
     </div>
     <div class="row" id="member-image">
       <div class="span3 center">
