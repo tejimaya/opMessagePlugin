@@ -279,8 +279,11 @@ $(document).ready(function() {
         .end();
 
       // has one image data from api. this opMessagePlugin version.
-      if (data.image_path && data.image_tag) {
-        $photo.append('<li><a href="' + data.image_path + '">' + data.image_tag + '</a></li>');
+      if (data.images) {
+        console.log(data.images);
+        $.each(data.images, function(key, image) {
+          $photo.append('<li><a href="' + image.path + '">' + image.tag + '</a></li>');
+        });
       } else {
         $photo.remove();
       }

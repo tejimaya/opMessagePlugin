@@ -132,3 +132,7 @@ body#page_message_smtChain div#message-wrapper-parent p.time-info {
   text-decoration: none;
   padding: 0.5rem;
 }
+
+body#page_message_smtChain ul.photo {
+  margin-left: 0;
+}
