@@ -37,14 +37,15 @@ function op_api_message($messageList, $member, $useIsReadFlag = false)
   $body = preg_replace(array('/&lt;op:.*?&gt;/', '/&lt;\/op:.*?&gt;/'), '', $message->getDecoratedMessageBody());
   $body = preg_replace('/http.:\/\/maps\.google\.co[[:graph:]]*/', '', $body);
   $body = op_auto_link_text($body);
-  $imagePath = null;
-  $imageTag = null;
-  $image = $message->getMessageFile();
+  $images = $message->getMessageFile();
 
-  if (0 < count($image))
+  $imagesData = array();
+  foreach ($images as $key => $image)
   {
-    $imageTag = image_tag_sf_image($image[0]->getFile(), array('size' => '76x76'));
-    $imagePath = sf_image_path($image[0]->getFile());
+    $imagesData[$key] = array(
+      'tag'  => image_tag_sf_image($image->getFile(), array('size' => '76x76')),
+      'path' => sf_image_path($image->getFile()),
+    );
   }
 
   $data = array(
@@ -53,8 +54,7 @@ function op_api_message($messageList, $member, $useIsReadFlag = false)
     'subject'     => $message->getSubject(),
     'body'        => nl2br($body),
     'summary'     => op_truncate(op_decoration($body, true), 25, '...'),
-    'image_path'  => $imagePath,
-    'image_tag'   => $imageTag,
+    'images'      => $imagesData,
     'created_at'  => $message->getCreatedAt(),
     'formatted_date' => get_formatted_date($message->getCreatedAt()),
     'chainUrl'    => app_url_for('pc_frontend', '@messageChain?id='.$member->getId()),
