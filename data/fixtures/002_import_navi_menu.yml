@@ -38,7 +38,7 @@ Navigation:
 #    id: default_navigation_message
 #    caption: "Message"
 #    culture: "en"
-#    
+#
 #  friend_navigation_message_i18n_ja:
 #    id: friend_navigation_message
 #    caption: "メッセージを送る"

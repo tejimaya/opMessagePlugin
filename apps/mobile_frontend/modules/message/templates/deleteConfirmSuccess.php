@@ -8,4 +8,3 @@ op_mobile_page_title(__('Delete this message'));
 <input type="submit" value="<?php echo __('Delete') ?>"  />
 </center>
 </form>
-
