@@ -293,6 +293,12 @@ $(document).ready(function() {
       } else {
         $('#message-wrapper-parent').prepend(template);
       }
+
+      $('.message-body').readmore({
+        speed: 75,
+        moreLink: '<a href="javascript:void(0);">[もっと見る]</a>',
+        lessLink: '<a href="javascript:void(0);">[閉じる]</a>'
+      });
     },
 
     /**
