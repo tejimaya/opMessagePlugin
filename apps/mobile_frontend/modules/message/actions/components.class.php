@@ -8,17 +8,13 @@
  * file and the NOTICE file that were distributed with this source code.
  */
 
-class updateOpMessagePlugin_2_0_0_2 extends opMigration
+/**
+ * message components.
+ *
+ * @package    OpenPNE
+ * @subpackage message
+ * @author     Shogo Kawahara <kawahara@tejimaya.net>
+ */
+class messageComponents extends opMessagePluginMessageComponents
 {
-  public function up()
-  {
-    $nav = Doctrine_Core::getTable('Navigation')
-      ->findOneByTypeAndUri('mobile_home_side', 'message/index');
-    if (!$nav)
-    {
-      return;
-    }
-
-    $nav->delete();
-  }
 }
