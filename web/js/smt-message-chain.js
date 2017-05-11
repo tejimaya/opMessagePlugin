@@ -400,6 +400,13 @@ $(document).ready(function() {
 
         $('#first-loading').hide();
         var result = message.insertMessages(response.data, true);
+        var isFirst = true;
+        if (isFirst && null !== response.readed_max_updated_at)
+        {
+          $('#readedMaxUpdatedAt').val(response.readed_max_updated_at);
+          isFirst= false;
+        }
+
         dfd.resolve();
 
         if (!$('#message-wrapper-parent').find('.message-wrapper').length) {
