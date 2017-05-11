@@ -125,7 +125,7 @@ class PluginSendMessageDataTable extends Doctrine_Table
   * @param array   $options    options
   * @return SendMessageData
   */
-  public static function sendMessage($toMembers, $subject, $body, $options = array())
+  public static function sendMessage($toMembers, $subject, $body, $options = array(), Doctrine_Connection $conn = null)
   {
     $options = array_merge(array(
       'type'       => 'message',
@@ -160,7 +160,7 @@ class PluginSendMessageDataTable extends Doctrine_Table
       $send->setSendMessageData($sendMessageData);
       $send->setMember($member);
       $send->setIsRead($options['is_read']);
-      $send->save();
+      $send->save($conn);
 
       opMessagePluginUtil::sendNotification($options['fromMember'], $send->Member, $sendMessageData);
     }
