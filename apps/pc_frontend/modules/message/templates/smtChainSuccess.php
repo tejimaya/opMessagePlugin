@@ -9,6 +9,8 @@
 <input type="hidden" value="<?php echo $member->getId() ?>" name="toMember" id="messageToMember" />
 <input type="hidden" value="<?php echo app_url_for('api', 'message_post') ?>" name="postUrl" id="postUrl" />
 <input type="hidden" value="<?php echo app_url_for('api', 'message_chain') ?>" name="chainUrl" id="chainUrl" />
+<input type="hidden" value="<?php echo app_url_for('api', '@message_readed_list') ?>" name="messageRecentList" id="messageRecentList" />
+<input type="hidden" value="<?php echo date('Y-m-d H:i:s', 0) ?>" name="readedMaxUpdatedAt" id="readedMaxUpdatedAt" />
 
 <div class="row" id="message-member">
   <div class="content">

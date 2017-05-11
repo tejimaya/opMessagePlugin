@@ -16,6 +16,12 @@ recent_message_list:
   param: { module: message, action: recentList, sf_format: json }
   requirements: { sf_method: post }
 
+message_readed_list:
+  url:   /message/readedList.json
+  class: sfRequestRoute
+  param: { module: message, action: readedList, sf_format: json }
+  requirements: { sf_method: post }
+
 message_no_default:
   url:   /message/*
   param: { module: default, action: error }

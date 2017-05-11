@@ -383,6 +383,35 @@ $(document).ready(function() {
     },
 
     /**
+     * update readed message data.
+     * @param keyId
+     * @param isAddLow
+     */
+    getReadedList: function() {
+
+      var dfd = $.Deferred();
+      var url = $('#messageRecentList').val();
+      $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+          apiKey: openpne.apiKey,
+          memberId: Number(this.getMemberId()),
+          maxUpdatedAt: $('#readedMaxUpdatedAt').val()
+        },
+        dataType: 'json',
+        success: function(response) {
+          dfd.resolve(response);
+        },
+        error: function(e) {
+          dfd.reject();
+        }
+      });
+
+      return dfd.promise();
+    },
+
+    /**
      * add new messages.
      */
     addNewMessages: function(notUseHeartbeat) {
@@ -400,6 +429,13 @@ $(document).ready(function() {
 
         $('#first-loading').hide();
         var result = message.insertMessages(response.data, true);
+        var isFirst = true;
+        if (isFirst && null !== response.readed_max_updated_at)
+        {
+          $('#readedMaxUpdatedAt').val(response.readed_max_updated_at);
+          isFirst= false;
+        }
+
         dfd.resolve();
 
         if (!$('#message-wrapper-parent').find('.message-wrapper').length) {
@@ -418,6 +454,14 @@ $(document).ready(function() {
         if (minId == -1 && response.has_more) {
           message.showMore();
         }
+
+        message.getReadedList().done(function(response) {
+          for (var i = 0; i < response.ids.length; i++) {
+            var selector = 'div.message-wrapper[data-message-id="'+ response.ids[i] +'"] p.message-status';
+            $(selector).html('<span class="label label-success">既読</span>');
+            $('#readedMaxUpdatedAt').val(response.max_updated_at);
+          }
+        });
 
       }).always(function() {
 
