@@ -81,6 +81,18 @@ class messageActions extends opJsonApiActions
     );
   }
 
+  public function executeReadedList(sfWebRequest $request)
+  {
+    $this->forward400Unless($request['memberId'], 'memberId parameter is not specified.');
+    $this->forward400Unless($request['maxUpdatedAt'], 'maxUpdatedAt parameter is not specified.');
+
+    return $this->renderJson(Doctrine_Core::getTable('MessageSendList')->getReadedMessageIds(
+      $request['memberId'],
+      $this->getUser()->getMemberId(),
+      $request['maxUpdatedAt']
+    ));
+  }
+
   public function executeRecentList(sfWebRequest $request)
   {
     $keyId = (int) $request->getParameter('keyId', 0);

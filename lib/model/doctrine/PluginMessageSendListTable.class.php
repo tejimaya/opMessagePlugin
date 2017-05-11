@@ -374,4 +374,47 @@ class PluginMessageSendListTable extends Doctrine_Table
       ->whereIn('id', $ids)
       ->execute();
   }
+
+  /**
+   * get already message readed list.
+   *
+   * @param string  $memberId
+   * @param mixed   $myMemberId (string|null)
+   * @param string  $maxUpdatedAt
+   * @return array ['ids' => [1, 2, 3, ...], 'max_timestamp' => 1494403512]
+   */
+  public function getReadedMessageIds($memberId, $myMemberId, $maxUpdatedAt)
+  {
+    $sql = <<<SQL
+SELECT m2.id AS m2_id, m.updated_at AS readed_updated_at
+  FROM message_send_list m
+  INNER JOIN message m2
+    ON m.message_id = m2.id
+    AND m.is_read = 1
+    AND m2.is_send = 1
+  WHERE m2.member_id = :my_member_id
+  AND m.member_id = :member_id
+  AND m.updated_at > :max_updated_at
+SQL;
+    $pdo = $this->getConnection()->getDbh();
+    $sth = $pdo->prepare($sql);
+    $sth->execute(array(
+      ':my_member_id' => $myMemberId,
+      ':member_id' => $memberId,
+      ':max_updated_at' => $maxUpdatedAt,
+    ));
+
+    $ids = array();
+    $maxUpdatedAt = null;
+    foreach ($sth->fetchAll() as $result)
+    {
+      $ids[] = $result['m2_id'];
+      if (is_null($maxUpdatedAt) || $maxUpdatedAt < $result['readed_updated_at'])
+      {
+        $maxUpdatedAt = $result['readed_updated_at'];
+      }
+    }
+
+    return array('ids' => $ids, 'max_updated_at' => $maxUpdatedAt);
+  }
 }
