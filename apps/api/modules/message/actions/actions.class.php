@@ -35,19 +35,12 @@ class messageActions extends opJsonApiActions
     $relation = Doctrine_Core::getTable('MemberRelationship')->retrieveByFromAndTo($toMember->getId(), $this->member->getId());
     $this->forward400If($relation && $relation->getIsAccessBlock(), 'Cannot send the message.');
 
-    $message = Doctrine::getTable('SendMessageData')->sendMessage($toMember, SendMessageData::SMARTPHONE_SUBJECT, $body, array());
-
     $file = $request->getFiles('message_image');
     try
     {
+      // file validation.
       $validator = new opValidatorImageFile(array('required' => false));
       $clean = $validator->clean($file);
-
-      if (is_null($clean))
-      {
-        // if empty.
-        return sfView::SUCCESS;
-      }
     }
     catch (Exception $e)
     {
@@ -56,14 +49,38 @@ class messageActions extends opJsonApiActions
       $this->forward400('This image file is invalid.');
     }
 
-    $file = new File();
-    $file->setFromValidatedFile($clean);
-    $file->save();
+    $conn = Doctrine_Core::getTable('SendMessageData')->getConnection();
+    $conn->beginTransaction();
 
-    $messageFile = new MessageFile();
-    $messageFile->setMessageId($message->getId());
-    $messageFile->setFile($file);
-    $messageFile->save();
+    try
+    {
+      // try save.
+      $message = Doctrine::getTable('SendMessageData')->sendMessage($toMember, SendMessageData::SMARTPHONE_SUBJECT, $body, array(), $conn);
+
+      // if has not file, $clean is null.
+      if (!is_null($clean))
+      {
+        $file = new File();
+        $file->setFromValidatedFile($clean);
+        $file->save($conn);
+
+        $messageFile = new MessageFile();
+        $messageFile->setMessageId($message->getId());
+        $messageFile->setFile($file);
+        $messageFile->save($conn);
+      }
+
+      $conn->commit();
+    }
+    catch (Exception $e)
+    {
+      $conn->rollback();
+      $this->logMessage($e->getMessage());
+
+      $this->forward400('This massage can not save.');
+    }
+
+    return $this->renderJson(array('status' => 'success'));
   }
 
   public function executeChain(sfWebRequest $request)
