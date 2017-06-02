@@ -69,8 +69,8 @@ DeletedMessage:
     id: { type: integer(4), primary: true, autoincrement: true }
     #削除者
     member_id: { type: integer(4) }
-    message_id: { type: integer(4), notnull: true }
-    message_send_list_id: { type: integer(4), notnull: true }
+    message_id: { type: integer(4), notnull: false }
+    message_send_list_id: { type: integer(4), notnull: false }
     #完全削除
     is_deleted: { type: boolean, notnull: true, default: 0 }
   relations:
