@@ -196,6 +196,13 @@ $(document).ready(function() {
       var
         formData = new FormData(form[0]);
 
+      var photo = $('#message_image').val();
+      if (photo == null || photo == '') {
+        if (typeof formData.delete != "undefined"){
+          formData.delete('message_image');
+        }
+      }
+
       formData.append('apiKey', openpne.apiKey);
       formData.append('toMember', this.getMemberId());
 
