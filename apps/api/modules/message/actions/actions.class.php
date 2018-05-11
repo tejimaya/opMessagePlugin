@@ -36,17 +36,20 @@ class messageActions extends opJsonApiActions
     $this->forward400If($relation && $relation->getIsAccessBlock(), 'Cannot send the message.');
 
     $file = $request->getFiles('message_image');
-    try
+    if ($file)
     {
-      // file validation.
-      $validator = new opValidatorImageFile(array('required' => false));
-      $clean = $validator->clean($file);
-    }
-    catch (Exception $e)
-    {
-      $this->logMessage($e->getMessage());
+      try
+      {
+        // file validation.
+        $validator = new opValidatorImageFile(array('required' => false));
+        $clean = $validator->clean($file);
+      }
+      catch (Exception $e)
+      {
+        $this->logMessage($e->getMessage());
 
-      $this->forward400('This image file is invalid.');
+        $this->forward400('This image file is invalid.');
+      }
     }
 
     $conn = Doctrine_Core::getTable('SendMessageData')->getConnection();
