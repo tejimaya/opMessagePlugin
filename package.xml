@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.10.3" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -48,11 +48,11 @@
   <email />
   <active>yes</active>
  </contributor>
- <date>2017-06-02</date>
- <time>15:53:34</time>
+ <date>2018-05-23</date>
+ <time>17:00:11</time>
  <version>
-  <release>2.0.0.3</release>
-  <api>2.0.0.3</api>
+  <release>2.0.0.4</release>
+  <api>2.0.0.4</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -60,12 +60,12 @@
  </stability>
  <license>apache</license>
  <notes>
-2.0.0.3 alpha 3 release.
+version 2.0.0.4 (alpha 4 release)
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" md5sum="f0222195ba1dd53e583368f6b7249a88" name="apps/api/config/routing.yml" role="data" />
-   <file baseinstalldir="/" md5sum="dbca4e9ba92e4de28c765ea75334e440" name="apps/api/modules/message/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="459ce7ef7a68660ca8b9e8d7b3491a5d" name="apps/api/modules/message/actions/actions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="84da2b2f9aa90aa40d628943a3bf154a" name="apps/api/modules/message/templates/chainSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="ad0707eeb0a515beed06c5eb9b748755" name="apps/api/modules/message/templates/recentListSuccess.php" role="data" />
    <file baseinstalldir="/" md5sum="6b0911df445ce8125d146636cb7e7cb9" name="apps/mobile_frontend/config/app.yml" role="data" />
@@ -182,7 +182,7 @@
    <file baseinstalldir="/" md5sum="7b5574cb13e165e38022ac65941725a8" name="web/js/bootstrap.min.js" role="data" />
    <file baseinstalldir="/" md5sum="4c1e2a15b1eafb93a71ebc71b415b4eb" name="web/js/jquery.timeago.js" role="data" />
    <file baseinstalldir="/" md5sum="2611fe08e48dcf93c60998a5c536649b" name="web/js/readmore.min.js" role="data" />
-   <file baseinstalldir="/" md5sum="600b6dbdacbef77129aca54071da715f" name="web/js/smt-message-chain.js" role="data" />
+   <file baseinstalldir="/" md5sum="919154c2840951f0c89205d07680d651" name="web/js/smt-message-chain.js" role="data" />
    <file baseinstalldir="/" md5sum="4ce3f0f896266db83bf842f9af7aa2d2" name="web/js/smt-message-recent-list.js" role="data" />
    <file baseinstalldir="/" md5sum="3b83ef96387f14655fc854ddc3c6bd57" name="LICENSE" role="data" />
   </dir>
@@ -392,6 +392,21 @@ Some bug fix
    <license>apache</license>
    <notes>
 2.0.0.3 alpha 3 release.
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>2.0.0.4</release>
+    <api>2.0.0.4</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2018-05-23</date>
+   <license>apache</license>
+   <notes>
+version 2.0.0.4 (alpha 4 release)
    </notes>
   </release>
  </changelog>
