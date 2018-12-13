@@ -107,7 +107,7 @@ class opMessageSender
   public static function decorateBySpecifiedTemplate($templateName, $templateParams = array())
   {
     $context = sfContext::getInstance();
-    $context->getConfiguration()->loadHelpers('i18n');
+    $context->getConfiguration()->loadHelpers('I18N');
     $request = $context->getRequest();
     $defaultFormat = $request->getRequestFormat();
     $request->setRequestFormat('html');
