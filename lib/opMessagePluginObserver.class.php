@@ -17,7 +17,7 @@
 class opMessagePluginObserver
 {
   public static $targetCategories = array(
-    'friend_confirm', 'community_confirm', 'community_admin_request',
+    'friend_confirm', 'community_confirm', 'community_admin_request', 'community_sub_admin_request',
   );
 
   static function injectMessageFormField(sfEvent $event)
