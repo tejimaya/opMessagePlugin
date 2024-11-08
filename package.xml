@@ -48,11 +48,11 @@
   <email />
   <active>yes</active>
  </contributor>
- <date>2018-05-23</date>
- <time>17:00:11</time>
+ <date>2024-11-08</date>
+ <time>16:14:24</time>
  <version>
-  <release>2.0.0.4</release>
-  <api>2.0.0.4</api>
+  <release>2.0.0.5</release>
+  <api>2.0.0.5</api>
  </version>
  <stability>
   <release>alpha</release>
@@ -60,7 +60,7 @@
  </stability>
  <license>apache</license>
  <notes>
-version 2.0.0.4 (alpha 4 release)
+version 2.0.0.5 (alpha 5 release)
  </notes>
  <contents>
   <dir baseinstalldir="/" name="/">
@@ -125,7 +125,7 @@ version 2.0.0.4 (alpha 4 release)
    <file baseinstalldir="/" md5sum="329d81f77efed1476a8eacfd342e6bf7" name="data/migrations/2.0.0.3/007_message_id_message_send_list_id_change_column.php" role="data" />
    <file baseinstalldir="/" md5sum="99eb9561abbb716e50bd54d95cfe9274" name="i18n/messages.ja.xml" role="data" />
    <file baseinstalldir="/" md5sum="24e1e5c08a165ec40cf8b51084b92146" name="lib/opMessagePluginFormatter.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="3c7170011f8621b4255b11ccfbcc800f" name="lib/opMessagePluginObserver.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="b236de2cfc63e300021ec79fd479e29a" name="lib/opMessagePluginObserver.class.php" role="data" />
    <file baseinstalldir="/" md5sum="56f853926911d3967fec127df50da8fb" name="lib/opMessagePluginRouting.class.php" role="data" />
    <file baseinstalldir="/" md5sum="be99b6092a53a94f451ab9224abf89e5" name="lib/action/opMessagePluginActions.class.php" role="data" />
    <file baseinstalldir="/" md5sum="c5c26cab5e0eceae367067a5a93bc24f" name="lib/action/opMessagePluginMessageActions.class.php" role="data" />
@@ -156,7 +156,7 @@ version 2.0.0.4 (alpha 4 release)
    <file baseinstalldir="/" md5sum="62c45263d0302367a75fa8687fa7d030" name="lib/model/doctrine/PluginSendMessageData.class.php" role="data" />
    <file baseinstalldir="/" md5sum="048ecbab04ad9be40e33e4764b3f3b49" name="lib/model/doctrine/PluginSendMessageDataTable.class.php" role="data" />
    <file baseinstalldir="/" md5sum="aaeeadd20fd6b9f52ff42c3bb0a70d85" name="lib/util/opMessagePluginUtil.class.php" role="data" />
-   <file baseinstalldir="/" md5sum="a62503ff53248fa96e48c1e638e58599" name="lib/util/opMessageSender.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="460221f3051b4e8c4c4ec2248f427207" name="lib/util/opMessageSender.class.php" role="data" />
    <file baseinstalldir="/" md5sum="ac9fb6ecdccfb647af308cb313175916" name="templates/_communityJoiningRequestMessage.php" role="data" />
    <file baseinstalldir="/" md5sum="2ead5acc5927fbe5ee200a8b2aa70e58" name="templates/_communitySubAdminRequestMessage.php" role="data" />
    <file baseinstalldir="/" md5sum="1257bf97504c3be62d4b085249f0221f" name="templates/_communityTakingOverMessage.php" role="data" />
@@ -407,6 +407,21 @@ Some bug fix
    <license>apache</license>
    <notes>
 version 2.0.0.4 (alpha 4 release)
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>2.0.0.5</release>
+    <api>2.0.0.5</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2024-11-08</date>
+   <license>apache</license>
+   <notes>
+version 2.0.0.5 (alpha 5 release)
    </notes>
   </release>
  </changelog>
